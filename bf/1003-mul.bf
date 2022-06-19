@@ -12,7 +12,6 @@
     > ---- ----  cell #3
     << ---- ---- cell #1
 ]
-
 >           Cell #2 and it'll be our loop counter
 [
     >       Move to Cell #3 and it's our loop counter
