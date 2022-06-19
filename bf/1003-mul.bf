@@ -1,39 +1,18 @@
-++++ ++++        Get ascii code for 0 which is 48
-[
-    > +++ +++   Cell #1
-    < -         Cell #0
-]
->>
-,           Cell #2 (User Input)
-> ,  		Cell #3 (User Input)
-<<      Cell #1
-[               Remove 48 from User Input
-    > ---- ----  cell #2
-    > ---- ----  cell #3
-    << ---- ---- cell #1
-]
->           Cell #2 and it'll be our loop counter
-[
-    >       Move to Cell #3 and it's our loop counter
-    [
-        > +     Move and add 1 to Cell #4
-        > +     Move and add 1 to Cell #5
-        << -    Go back to Cell #3 and minus 1
-    ]           Leaves loop if Cell #3 is 0
-    [Still at Cell #3]
-    >>           Move to cell #5 and it's our loop counter
-    [
-        << +    Move to Cell #3 and add 1
-        >> -     Go back to Cell #5 and minus 1
-    ]           Leaves loop if Cell #5 is 0
-    <<< -         Go back to Cell #2 and minus 1
-]
-At this point our program has multiplied #2 and #3 to #4
-To display the ASCII character we must add 48 to the value in #4.
-We use a loop to compute 48 = 6 * 8.
-++++ ++++  c2 = 8 and this will be our loop counter again
-[
-    >> +++ +++  Add 6 to Cell #4
-    << -        Subtract 1 from c2
-]
->> .
+# BrainF*ck Script to multiply two numbers
+# Result has to be less than 10 (a single digit number)
+# given example 42: 4 will be in block #1 2 will be in block #2
+# block 0 will store the result
+# block 1 will hold the value to multiply
+# block 2 will hold the amount of times to multiply
+# the result of an input of 42 will output the result of 4*2
+# read into block 1 and 2
+# subtract 48 from each: '0'
+# loop while block 2 != 0 adding the value of block 1 to block 0 every time
+# BLOCK 0	BLOCK 1		BLOCK 2		BLOCK 3 	BLOCK4
+# 0		4		1		0 		
+>,------------------------------------------------ # read into #1
+>,------------------------------------------------ # read into #2
+[<[>>+<<<+>-]>>[<<+>>-] COPY BLOCK 1 INTO BLOCK 3 AND 0 THEN COPY BLOCK 3 BACK TO BLOCK 1
+<-] MOVE BLOCK TO BLOCK 2 AND DECREASE (DONE WITH ONE ITERATION)
+# MOVE TO BLOCK 0 AND INCREASE BY ASCII '0' (DEC 48)
+<<++++++++++++++++++++++++++++++++++++++++++++++++.
